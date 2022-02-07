@@ -1,4 +1,4 @@
-import java.awt.Color.*;
+//import java.awt.Color.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;

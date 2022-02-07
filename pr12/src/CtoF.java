@@ -18,12 +18,12 @@ public class CtoF {
 
     public CtoF(){
     //------------------frame setup--------------------
-        f= new JFrame("simple calc");
+        f= new JFrame("fer to cel");
         f.setSize(600,600);
         f.setLayout(null);
         f.setVisible(true);
         Rectangle x= f.getBounds();
-        int w= x.width;
+        //int w= x.width;
         int h= x.height;
          //f.getContentPane().setBackground();
 

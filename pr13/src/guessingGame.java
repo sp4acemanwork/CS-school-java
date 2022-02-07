@@ -3,7 +3,7 @@ import java.awt.event.*;
 import java.awt.*;
 
 
-public class CtoF {
+public class guessingGame {
     JFrame f;
     JTextField t1;
     JTextField t2;
@@ -16,9 +16,9 @@ public class CtoF {
     JButton b2;
    
 
-    public CtoF(){
+    public guessingGame(){
     //------------------frame setup--------------------
-        f= new JFrame("fer to");
+        f= new JFrame("guessing game");
         f.setSize(600,600);
         f.setLayout(null);
         f.setVisible(true);
@@ -56,21 +56,34 @@ f.add(t2);
 
 
 //---------------------buttons------------------------------
-        b1 = new JButton("fahrenheit");
+        b1 = new JButton("guess");
         b1.setBounds(w/8,h-h+120,100,25);
         f.add(b1);
 
 
 //----------------------------------------------------
        
-        // fer event
+        // guess event 
         b1.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                double num1 = Double.parseDouble(t2.getText());
+                double num1 = Double.parseDouble(t1.getText());
                 
-                double result = num1; 
-                l1.setText("Ferignhight");
-                t1.setText(""+result);
+               if(){
+
+               }else if (condition) {
+                   
+               } else if(condition) {
+                   
+               } else{
+                   l2.setText("ERROR");
+               }
+                
+                
+                
+                
+                
+                l2.setText("Ferignhight");
+               
                 
              
                 
@@ -79,17 +92,7 @@ f.add(t2);
             }
         });
         // cel event 
-        b2.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e){
-                double num1 = Double.parseDouble(t2.getText());
-                
-                double result = (num1-32)*(0.5556);
-                l1.setText("Celsius");
-                t1.setText(""+result);
-                
-                
-            }
-        });
+ 
 
 
 
@@ -99,6 +102,6 @@ f.add(t2);
 
 
     public static void main(String[] args) throws Exception {
-       new CtoF();
+       new guessingGame();
     }
 }
