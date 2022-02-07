@@ -86,7 +86,7 @@ f.add(t2);
                 double num1 = Double.parseDouble(t2.getText());
                 
                 double result = (num1-32)*(0.5556);
-                l1.setText("Celsius");
+                l1.setText("Celsius yes");
                 t1.setText(""+result);
                 
                 
