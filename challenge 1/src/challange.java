@@ -13,12 +13,16 @@ public class challange {
     
     
     public challange(){
+        
         f = new JFrame("simple calc");
         f.setSize(800,600);
         Rectangle x = f.getContentPane().getBounds();
         int h = x.height;
         int w = x.width;
         f.setVisible(true);
+        
+        
+        
         l2 = new JLabel("");
         l2.setBounds(w/2,h/2,100,50);
         f.add(l2);
