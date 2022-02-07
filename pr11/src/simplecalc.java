@@ -37,7 +37,7 @@ l1.setBounds(15,h-h,100,25);
 t1= new JTextField("");
 t1.setBounds(15,h-h+25,100,25);
 
-tiads = new JLabel("?");
+tiads = new JLabel("?"); // litle touch to add some polish 
 tiads.setBounds(120,h-h+25,10,25);
 //
 l2 = new JLabel("num 2");
