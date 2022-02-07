@@ -9,8 +9,8 @@ public class simplecalc {
     JTextField t2;
     JTextField t3;
     JLabel l1;
-    JLable l2;
-    JLable l3;
+    JLabel l2;
+    JLabel l3;
     JButton b1;
     JButton b2;
     JButton b3;
@@ -19,15 +19,59 @@ public class simplecalc {
 
     public simplecalc(){
         f= new JFrame("simple calc");
-        f.setLayout(600,600);
+        f.setSize(600,600);
         f.setLayout(null);
         f.setVisible(true);
-        int num1 = null;
-        int num2 = null;
-        int result = null;
+        Rectangle x= f.getContentPane().getBounds();
+        int w= x.width;
+        int h= x.height;
+         //f.getContentPane().setBackground();
+        int num1 = 0;
+        int num2 = 0;
+        int result = 0;
 
-        //f.getContentPane().setBackground();
-        
+        b1 = new JButton("add");
+        b1.setBounds(15,h/2+25,100,25);
+        f.add(b1);
+        b2 = new JButton("subtract");
+        b2.setBounds(130,h/2+25,100,25);
+        f.add(b2);
+        b3 = new JButton("multiply");
+        b3.setBounds(15,h/2+75,100,25);
+        f.add(b3);
+        b4 = new JButton("divide");
+        b4.setBounds(130,h/2+75,100,25);
+        f.add(b4);
+        b5 = new JButton("clear");
+        b5.setBounds(w/8,h/2+120,100,25);
+        f.add(b5);
+
+       
+        b1.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                
+            }
+        });
+        b2.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                
+            }
+        });
+        b3.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                
+            }
+        });
+        b4.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                
+            }
+        });
+        b5.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                
+            }
+        });
 
 
 
@@ -37,6 +81,6 @@ public class simplecalc {
 
 
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+       new simplecalc();
     }
 }
