@@ -2,9 +2,8 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 
-public class guessingGame {
 
-
+public class CtoF {
     JFrame f;
     JTextField t1;
     JTextField t2;
@@ -19,7 +18,7 @@ public class guessingGame {
 
     public CtoF(){
     //------------------frame setup--------------------
-        f= new JFrame("simple calc");
+        f= new JFrame("fer to");
         f.setSize(600,600);
         f.setLayout(null);
         f.setVisible(true);
@@ -30,7 +29,7 @@ public class guessingGame {
 
 //---------------------lables/text area--------------------
 
-l1 = new JLabel("Ferignhight");
+l1 = new JLabel("make a guess");
 l1.setBounds(15,h-h+25,100,25);
 //
 t1= new JTextField("");
@@ -38,11 +37,11 @@ t1.setBounds(130,h-h+25,100,25);
 //
 
 //
-l2 = new JLabel("tempiture");
-l2.setBounds(15,h-h+75,100,25);
+l2 = new JLabel("Enter a number");
+l2.setBounds(240,h-h+25,100,25);
 //
 t2= new JTextField("");
-t2.setBounds(130,h-h+75,100,25);
+t2.setBounds(350,h-h+25,100,25);
 //
 
 
@@ -58,15 +57,13 @@ f.add(t2);
 
 //---------------------buttons------------------------------
         b1 = new JButton("fahrenheit");
-        b1.setBounds(15,h-h+120,100,25);
+        b1.setBounds(w/8,h-h+120,100,25);
         f.add(b1);
-        b2 = new JButton("celsius");
-        b2.setBounds(130,h-h+120,100,25);
-        f.add(b2);
+
 
 //----------------------------------------------------
        
-        // guess event 
+        // fer event
         b1.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 double num1 = Double.parseDouble(t2.getText());
@@ -82,17 +79,26 @@ f.add(t2);
             }
         });
         // cel event 
- 
+        b2.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                double num1 = Double.parseDouble(t2.getText());
+                
+                double result = (num1-32)*(0.5556);
+                l1.setText("Celsius");
+                t1.setText(""+result);
+                
+                
+            }
+        });
+
+
+
 
     }
 
 
 
-
-
-
     public static void main(String[] args) throws Exception {
-        new guessingGame();
-
+       new CtoF();
     }
 }
