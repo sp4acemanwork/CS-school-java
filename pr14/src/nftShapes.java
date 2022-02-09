@@ -91,7 +91,7 @@ public nftShapes(){
     // bound data order width,height,x,y was going to create an object for this but 
     //that requires a new class and more files and im to layzy for that 
 
-    //-------------------------create rect object--------------------------
+    //-------------------------create rect --------------------------
     private void createBox(int[]boundData,boolean f,int[] c ,Graphics g) {
     
         int cInter[] = {Randomizer(255),Randomizer(255),Randomizer(255)}; // use internal values to 
@@ -99,7 +99,7 @@ public nftShapes(){
 
         int boundDataInter[] = {Randomizer(600),Randomizer(525),Randomizer(200),Randomizer(200)};
     
-        if(f == true){// if true make a filled circle if not true make a holo circle or oval there the same thing 
+        if(f == true){// if true make a filled rectangle if not true make a holo rectangle or oval there the same thing 
             g.setColor(new Color(cInter[0],cInter[1],cInter[2])); // best cheat
             g.fillRect(boundDataInter[0],boundDataInter[1] , boundDataInter[2], boundDataInter[3]); 
 
@@ -114,7 +114,7 @@ public nftShapes(){
 
 
 
-    //-----------------------------------create Circ object --------------------
+    //----------------------------------- create Circ --------------------
     private void createCirc(int[]boundData,boolean f,int[] c ,Graphics g) {
     
         int cInter[] = {Randomizer(255),Randomizer(255),Randomizer(255)}; // use internal values to 
@@ -135,7 +135,7 @@ public nftShapes(){
 
         }
 
-    // class for createing a arch
+    // ----------------------------------------------------- create arch -----------------------------
     private void createArc(int[]boundData,boolean f,int[]c,int start,int angle,Graphics g) {
     
         int cInter[] = {Randomizer(255),Randomizer(255),Randomizer(255)}; // use internal values to 
@@ -143,7 +143,7 @@ public nftShapes(){
         
         int boundDataInter[] = {Randomizer(600),Randomizer(525),Randomizer(200),Randomizer(200)};
     
-        if(f == true){// if true make a filled circle if not true make a holo circle or oval there the same thing 
+        if(f == true){// if true make a filled arc if not true make a holo arc or oval there the same thing 
             g.setColor(new Color(cInter[0],cInter[1],cInter[2])); // best cheat
             g.fillArc(boundDataInter[0],boundDataInter[1] , boundDataInter[2], boundDataInter[3],Randomizer(180),Randomizer(180)); 
 
