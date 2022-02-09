@@ -126,7 +126,7 @@ public nftShapes(){
             g.setColor(new Color(cInter[0],cInter[1],cInter[2])); // best cheat
             g.fillOval(boundDataInter[0],boundDataInter[1] , boundDataInter[2], boundDataInter[3]); 
 
-            }else{// stuff for holo rect 
+            }else{// stuff for holo circ
                 g.setColor(new Color(cInter[0],cInter[1],cInter[2]));
                 g.drawOval(boundDataInter[0],boundDataInter[1] , boundDataInter[2], boundDataInter[3]);
 
@@ -147,7 +147,7 @@ public nftShapes(){
             g.setColor(new Color(cInter[0],cInter[1],cInter[2])); // best cheat
             g.fillArc(boundDataInter[0],boundDataInter[1] , boundDataInter[2], boundDataInter[3],Randomizer(180),Randomizer(180)); 
 
-            }else{// stuff for holo rect 
+            }else{// stuff for holo arc
                 g.setColor(new Color(cInter[0],cInter[1],cInter[2]));
                 g.drawArc(boundDataInter[0],boundDataInter[1] , boundDataInter[2], boundDataInter[3],Randomizer(180),Randomizer(180));
 
