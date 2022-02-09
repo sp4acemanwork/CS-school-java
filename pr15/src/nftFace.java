@@ -39,17 +39,13 @@ public nftFace(){
     //int test[] = {100,100,200,200}; for testing 
     testRgb =Arrays.toString(rgb) ;
     testBoudns = Arrays.toString(boundData);
-
+ 
     // ------------------------------ canvas setup ------------------------------
     Canvas c = new Canvas(){
         public void paint(Graphics g){ // all functions are useing internal randomizers
-            createBox(boundData, true, rgb, g, true);
-            createBox(boundData, false, rgb, g, false);
-            createBox(boundData2, false, rgb, g, false);
-            createArc(boundData, true, rgb, 50, 60, g, false);
-            createArc(boundData, false, rgb,0, 0, g, true);
-            createCirc(boundData2, true, rgb, g, false);
-            createCirc(boundData, false, rgb, g, true);
+            faceGen(g);
+            createCirc(boundData, true, rgb, g, true);
+
         }
     };
     // useint layouts so bounds must be set
@@ -181,10 +177,30 @@ public nftFace(){
 
 
         // ---------------------- create face------------------------------
-        private void faceGen(){
+        private void faceGen(Graphics g){
+        
+        int bigBoundData1[]={50,0,500,500};// face
+        //SUDO CODE: create a funttion to space evenly across the face randomly
+        int bigBoundData2[]={500,500,100,100};// eye 1
+        int bigBoundData3[]={500,500,100,100};// eye 2
+        //SUDO CODE: create a function to make the mouth either be happy or sad 
+        int bigBoundData4[]={500,500,100,100};// mouth
+        
+        int bigBoundData5[]={500,500,100,100}; // nose
+        
+        
+            int bigColorDat1[]={Randomizer(255),Randomizer(255),Randomizer(255)};
+            int bigColorDat2[]={Randomizer(255),Randomizer(255),Randomizer(255)};
+            int bigColorDat3[]={Randomizer(255),Randomizer(255),Randomizer(255)};
+            int bigColorDat4[]={Randomizer(255),Randomizer(255),Randomizer(255)};
+        
+        int smalldat[]={500,500,100,100};
+        int smallcolor[]={Randomizer(255),Randomizer(255),Randomizer(255)};
 
 
-            
+            createCirc(bigBoundData1, true,bigColorDat1, g, false);
+
+
         }
 
 
