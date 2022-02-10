@@ -179,12 +179,21 @@ public nftFace(){
         // ---------------------- create face------------------------------
         private void faceGen(Graphics g){
         
+
+       int sizedat[]={Randomizer(100),Randomizer(100)};
+       int sizedat2[]={Randomizer(300),Randomizer(300)};//
         int bigBoundData1[]={50,0,500,500};// face
         //SUDO CODE: create a funttion to space evenly across the face randomly
-        int bigBoundData2[]={500,500,100,100};// eye 1
-        int bigBoundData3[]={500,500,100,100};// eye 2
+        int bigBoundData2[]={200-sizedat[0]/2,100-sizedat[1]/2,sizedat[0],sizedat[1]};// eye 1
+        int bigBoundData3[]={400-sizedat[0],100-sizedat[1]/2,sizedat[0],sizedat[1]};// eye 2
         //SUDO CODE: create a function to make the mouth either be happy or sad 
-        int bigBoundData4[]={500,500,100,100};// mouth
+        
+    
+
+
+
+
+        int bigBoundData4[]={150+(150-sizedat2[1]/2),400,sizedat2[1],30};// mouth happy
         
         int bigBoundData5[]={500,500,100,100}; // nose
         
@@ -196,11 +205,25 @@ public nftFace(){
         
         int smalldat[]={500,500,100,100};
         int smallcolor[]={Randomizer(255),Randomizer(255),Randomizer(255)};
-
-
+        
+            // creates face 
             createCirc(bigBoundData1, true,bigColorDat1, g, false);
+            // creates eye one and two 
+            createCirc(bigBoundData2, true, bigColorDat2, g, false);
+            createCirc(bigBoundData3, true, bigColorDat2, g, false);
+            createCirc(bigBoundData3, true, bigColorDat2, g, false);
 
 
+
+
+
+
+
+            if(Randomizer(2)==2){
+                createArc(bigBoundData4, false, bigColorDat3,-180, 180, g, false);
+            }else{
+                createArc(bigBoundData4, false, bigColorDat3,180, -180, g, false);
+            }
         }
 
 
