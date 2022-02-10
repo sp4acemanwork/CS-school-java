@@ -44,7 +44,7 @@ public nftFace(){
     Canvas c = new Canvas(){
         public void paint(Graphics g){ // all functions are useing internal randomizers
             faceGen(g);
-            createCirc(boundData, true, rgb, g, true);
+            
 
         }
     };
@@ -181,11 +181,12 @@ public nftFace(){
         
 
        int sizedat[]={Randomizer(100),Randomizer(100)};
-       int sizedat2[]={Randomizer(300),Randomizer(300)};//
+       int sizedat2[]={Randomizer(300),Randomizer(300)};// mouth rand
+       int sizedat3[]={Randomizer(50),Randomizer(50)};  // nose rand 
         int bigBoundData1[]={50,0,500,500};// face
         //SUDO CODE: create a funttion to space evenly across the face randomly
-        int bigBoundData2[]={200-sizedat[0]/2,100-sizedat[1]/2,sizedat[0],sizedat[1]};// eye 1
-        int bigBoundData3[]={400-sizedat[0],100-sizedat[1]/2,sizedat[0],sizedat[1]};// eye 2
+        int bigBoundData2[]={(200-sizedat[0]/2),100-sizedat[1]/2,sizedat[0],sizedat[1]};// eye 1
+        int bigBoundData3[]={(400-sizedat[0]/2),100-sizedat[1]/2,sizedat[0],sizedat[1]};// eye 2
         //SUDO CODE: create a function to make the mouth either be happy or sad 
         
     
@@ -195,7 +196,7 @@ public nftFace(){
 
         int bigBoundData4[]={150+(150-sizedat2[1]/2),400,sizedat2[1],30};// mouth happy
         
-        int bigBoundData5[]={500,500,100,100}; // nose
+        int bigBoundData5[]={275+(25-sizedat3[0]),275-sizedat3[1],sizedat3[0],sizedat[1]}; // nose
         
         
             int bigColorDat1[]={Randomizer(255),Randomizer(255),Randomizer(255)};
@@ -211,7 +212,9 @@ public nftFace(){
             // creates eye one and two 
             createCirc(bigBoundData2, true, bigColorDat2, g, false);
             createCirc(bigBoundData3, true, bigColorDat2, g, false);
-            createCirc(bigBoundData3, true, bigColorDat2, g, false);
+            // create nose
+            createBox(bigBoundData5, true, bigColorDat4, g, false);
+            
 
 
 
