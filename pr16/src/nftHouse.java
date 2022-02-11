@@ -177,30 +177,48 @@ public nftHouse(){
 
     private void createTri(int[]boundData,boolean f,int[]c,Graphics g,boolean useintRand ){
      //   bounds [] {x,y,xd,td}
+     int XD2 = boundData[0] + boundData[2];
+     int XD1 = boundData[0]+ (boundData[2]/2) ;
+     int YD = boundData[1] - boundData[3];
+     int numOfPoints= 3;
 
+     int vertexX[]={boundData[0],XD1,XD2};
+     int vertexY[] ={boundData[1],YD,boundData[1]};
 
-
-
-        int XD2 = boundData[0] + boundData[2];
-        int XD1 = boundData[0]+ (boundData[2]/2) ;
-        int YD = boundData[1] - boundData[3];
-        int numOfPoints= 3;
-
-        int vertexX[]={boundData[0],XD1,XD2};
-        int vertexY[] ={boundData[1],YD,boundData[1]};
-
-
-
-        if(f==true){
-            Polygon tryingle =new Polygon(vertexX,vertexY,numOfPoints);
-        g.setColor(new Color(c[0],c[1],c[2]));
-        g.drawPolygon(tryingle);
-
-        }else if(f == false){
-            Polygon tryingle =new Polygon(vertexX,vertexY,numOfPoints);
+        if(useintRand == false){
+            if(f==true){
+                Polygon tryingle =new Polygon(vertexX,vertexY,numOfPoints);
             g.setColor(new Color(c[0],c[1],c[2]));
-            g.fillPolygon(tryingle);
+            g.drawPolygon(tryingle);
+    
+    
+            }else if(f == false){
+                Polygon tryingle =new Polygon(vertexX,vertexY,numOfPoints);
+                g.setColor(new Color(c[0],c[1],c[2]));
+                g.fillPolygon(tryingle);
+            }
+        }else{
+            int XD2 = boundData[0] + boundData[2];
+            int XD1 = boundData[0]+ (boundData[2]/2) ;
+            int YD = boundData[1] - boundData[3];
+            int numOfPoints= 3;
+
+             vertexX[]={boundData[0],XD1,XD2};
+             vertexY[] ={boundData[1],YD,boundData[1]};
+            if(f==true){
+                Polygon tryingle =new Polygon(vertexX,vertexY,numOfPoints);
+            g.setColor(new Color(c[0],c[1],c[2]));
+            g.drawPolygon(tryingle);
+    
+            }else if(f == false){
+                Polygon tryingle =new Polygon(vertexX,vertexY,numOfPoints);
+                g.setColor(new Color(c[0],c[1],c[2]));
+                g.fillPolygon(tryingle);
+            }
         }
+
+
+    
     
 
 
