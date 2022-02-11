@@ -32,10 +32,10 @@ public nftHouse(){
 
 
 
-    int rgb[] = {255,0,0}; // not needed 
+    int rgb[] = {Randomizer(255),Randomizer(255),Randomizer(255)}; // not needed 
 
-    int boundData[] = {100,100,100,100};
-    int boundData2[] = {100,100,200,200}; // not needed
+    int boundData[] = {200,200,200,100};
+    int boundData2[] = {Randomizer(100),Randomizer(100),Randomizer(100),Randomizer(100)}; // not needed
     //int test[] = {100,100,200,200}; for testing 
     testRgb =Arrays.toString(rgb) ;
     testBoudns = Arrays.toString(boundData);
@@ -43,8 +43,8 @@ public nftHouse(){
     // ------------------------------ canvas setup ------------------------------
     Canvas c = new Canvas(){
         public void paint(Graphics g){ // all functions are useing internal randomizers
-            //faceGen(g);
             
+            createTri(boundData, false, rgb, g, false);
 
         }
     };
@@ -175,59 +175,40 @@ public nftHouse(){
 
         }
 
+    private void createTri(int[]boundData,boolean f,int[]c,Graphics g,boolean useintRand ){
+     //   bounds [] {x,y,xd,td}
 
-        // ---------------------- create face------------------------------
-        private void faceGen(Graphics g){
-        
 
-       int sizedat[]={Randomizer(100),Randomizer(100)};
-       int sizedat2[]={Randomizer(300),Randomizer(300)};// mouth rand
-       int sizedat3[]={Randomizer(50),Randomizer(50)};  // nose rand 
-        int bigBoundData1[]={50,0,500,500};// face
-        //SUDO CODE: create a funttion to space evenly across the face randomly
-        int bigBoundData2[]={(200-sizedat[0]/2),100-sizedat[1]/2,sizedat[0],sizedat[1]};// eye 1
-        int bigBoundData3[]={(400-sizedat[0]/2),100-sizedat[1]/2,sizedat[0],sizedat[1]};// eye 2
-        //SUDO CODE: create a function to make the mouth either be happy or sad 
-        
+
+
+        int XD2 = boundData[0] + boundData[2];
+        int XD1 = boundData[0]+ (boundData[2]/2) ;
+        int YD = boundData[1] - boundData[3];
+        int numOfPoints= 3;
+
+        int vertexX[]={boundData[0],XD1,XD2};
+        int vertexY[] ={boundData[1],YD,boundData[1]};
+
+
+
+        if(f==true){
+            Polygon tryingle =new Polygon(vertexX,vertexY,numOfPoints);
+        g.setColor(new Color(c[0],c[1],c[2]));
+        g.drawPolygon(tryingle);
+
+        }else if(f == false){
+            Polygon tryingle =new Polygon(vertexX,vertexY,numOfPoints);
+            g.setColor(new Color(c[0],c[1],c[2]));
+            g.fillPolygon(tryingle);
+        }
     
 
 
 
 
-        int bigBoundData4[]={150+(150-sizedat2[1]/2),400,sizedat2[1],30};// mouth happy
-        
-        int bigBoundData5[]={275+(25-sizedat3[0]),275-sizedat3[1],sizedat3[0],sizedat[1]}; // nose
-        
-        
-            int bigColorDat1[]={Randomizer(255),Randomizer(255),Randomizer(255)};
-            int bigColorDat2[]={Randomizer(255),Randomizer(255),Randomizer(255)};
-            int bigColorDat3[]={Randomizer(255),Randomizer(255),Randomizer(255)};
-            int bigColorDat4[]={Randomizer(255),Randomizer(255),Randomizer(255)};
-        
-        int smalldat[]={500,500,100,100};
-        int smallcolor[]={Randomizer(255),Randomizer(255),Randomizer(255)};
-        
-            // creates face 
-            createCirc(bigBoundData1, true,bigColorDat1, g, false);
-            // creates eye one and two 
-            createCirc(bigBoundData2, true, bigColorDat2, g, false);
-            createCirc(bigBoundData3, true, bigColorDat2, g, false);
-            // create nose
-            createBox(bigBoundData5, true, bigColorDat4, g, false);
-            
-
-
-
-
-
-
-
-            if(Randomizer(2)==2){
-                createArc(bigBoundData4, false, bigColorDat3,-180, 180, g, false);
-            }else{
-                createArc(bigBoundData4, false, bigColorDat3,180, -180, g, false);
-            }
-        }
+    }
+        // ---------------------- create face------------------------------
+    
 
 
 
