@@ -45,6 +45,7 @@ public nftHouse(){
         public void paint(Graphics g){ // all functions are useing internal randomizers
             
             createTri(boundData, false, rgb, g, false);
+            createTri(boundData, false, rgb, g, true);
 
         }
     };
@@ -175,7 +176,11 @@ public nftHouse(){
 
         }
 
-    private void createTri(int[]boundData,boolean f,int[]c,Graphics g,boolean useintRand ){
+    
+    
+    
+    
+        private void createTri(int[]boundData,boolean f,int[]c,Graphics g,boolean useintRand ){
      //   bounds [] {x,y,xd,td}
      int XD2 = boundData[0] + boundData[2];
      int XD1 = boundData[0]+ (boundData[2]/2) ;
@@ -184,6 +189,16 @@ public nftHouse(){
 
      int vertexX[]={boundData[0],XD1,XD2};
      int vertexY[] ={boundData[1],YD,boundData[1]};
+
+     //-----------internal verbles for when using internal randomizer
+
+     int boundDataInt[] ={Randomizer(500),Randomizer(500),Randomizer(500),Randomizer(500)};
+     int XD2Int = boundDataInt[0] + boundDataInt[2];
+     int XD1Int = boundDataInt[0]+ (boundDataInt[2]/2) ;
+     int YDInt = boundDataInt[1] - boundDataInt[3];
+      
+     int vertexXR[]={boundDataInt[0],XD1Int,XD2Int};
+     int vertexYR[] ={boundDataInt[1],YDInt,boundDataInt[1]};
 
         if(useintRand == false){
             if(f==true){
@@ -198,33 +213,31 @@ public nftHouse(){
                 g.fillPolygon(tryingle);
             }
         }else{
-            int XD2 = boundData[0] + boundData[2];
-            int XD1 = boundData[0]+ (boundData[2]/2) ;
-            int YD = boundData[1] - boundData[3];
-            int numOfPoints= 3;
 
-             vertexX[]={boundData[0],XD1,XD2};
-             vertexY[] ={boundData[1],YD,boundData[1]};
+        
+            
             if(f==true){
+
                 Polygon tryingle =new Polygon(vertexX,vertexY,numOfPoints);
             g.setColor(new Color(c[0],c[1],c[2]));
             g.drawPolygon(tryingle);
     
             }else if(f == false){
-                Polygon tryingle =new Polygon(vertexX,vertexY,numOfPoints);
-                g.setColor(new Color(c[0],c[1],c[2]));
+                Polygon tryingle =new Polygon(vertexXR,vertexYR,numOfPoints);
+                g.setColor(new Color(Randomizer(255),Randomizer(255),Randomizer(255)));
                 g.fillPolygon(tryingle);
             }
         }
-
-
-    
-    
-
-
-
-
     }
+
+
+    
+    
+
+
+
+
+    
         // ---------------------- create face------------------------------
     
 
