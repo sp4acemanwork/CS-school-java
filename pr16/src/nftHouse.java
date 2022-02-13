@@ -27,13 +27,15 @@ public nftHouse(){
     f.setLayout(null);
     f.setVisible(true);
     b =new JButton("new nft");
-    b.setBounds(0,525,600,37);
+    b.setBounds(0,500,600,70);
     f.add(b);
 
 
 
     int rgb[] = {Randomizer(255),Randomizer(255),Randomizer(255)}; // not needed 
-
+    //                    x y bw bh  rL   rh
+    int BoundDataHouse[]={250-50,100,100,100,100,100};
+    //int ColorDataHouse[]={r,g,b,r2,g2,b2};
     int boundData[] = {200,200,200,100};
     int boundData2[] = {Randomizer(100),Randomizer(100),Randomizer(100),Randomizer(100)}; // not needed
     //int test[] = {100,100,200,200}; for testing 
@@ -43,8 +45,9 @@ public nftHouse(){
     // ------------------------------ canvas setup ------------------------------
     Canvas c = new Canvas(){
         public void paint(Graphics g){ // all functions are useing internal randomizers
-            createTri(boundData, false, rgb, g, false);
+            //createTri(boundData, false, rgb, g, false);
             createTri(boundData, false, rgb, g, true);
+            createHouse(250,rgb , BoundDataHouse, g);
 
         }
     };
@@ -233,8 +236,23 @@ public nftHouse(){
 
 
     
-        // ---------------------- create face------------------------------
-    
+        // ---------------------- create house------------------------------
+        private void createHouse(int groundHeight,int[] groundColor,int[] BoundData,Graphics g){
+            // set ground 
+            groundHeight = Randomizer(250);
+            int boundDataGrownd[]={00,500-groundHeight,600,groundHeight};
+            int BoundDataBase[] ={100,500-groundHeight-50,100,50};
+            int ColorGrond[] = {Randomizer(255),Randomizer(255),Randomizer(255)};
+            int ColorGrond2[] = {Randomizer(255),Randomizer(255),Randomizer(255)}; // rename this 
+            createBox(boundDataGrownd, true,ColorGrond ,g, false);
+            createBox(BoundDataBase,true,ColorGrond2,g,false);
+
+
+
+
+
+
+        }
 
 
 
