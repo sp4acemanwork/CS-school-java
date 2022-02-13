@@ -1,7 +1,7 @@
 import javax.swing.*;
 
 //import org.w3c.dom.css.RGBColor;
-
+// code is awfull never use again 
 import java.awt.*;
 import java.awt.event.*;
 //import java.lang.reflect.Array;
@@ -54,6 +54,10 @@ public nftShapes(){
             createArc(boundData, false, rgb, 0, 0, g);
             createArc(boundData, true, rgb, 0, 0, g);
             createArc(boundData, false, rgb, 0, 0, g);
+            createTri(boundData, true, rgb, g, true);
+            createTri(boundData, false, rgb, g, true);
+            createTri(boundData, true, rgb, g, true);
+            createTri(boundData, false, rgb, g, true);
 
             
         }
@@ -156,7 +160,53 @@ public nftShapes(){
 
         }
 
+        private void createTri(int[]boundData,boolean f,int[]c,Graphics g,boolean useintRand ){
+            //could be cut in half 
+            //   bounds [] {x,y,xd,td}
+           int XD2 = boundData[0] + boundData[2];
+           int XD1 = boundData[0]+ (boundData[2]/2) ;
+           int YD = boundData[1] - boundData[3];
+           int numOfPoints= 3;
+           int vertexX[]={boundData[0],XD1,XD2};
+           int vertexY[] ={boundData[1],YD,boundData[1]};
 
+            //-----------internal verbles for when using internal randomizer come up with way to use less arrays 
+
+           int boundDataInt[] ={Randomizer(500),Randomizer(500),Randomizer(500),Randomizer(500)};
+           int XD2Int = boundDataInt[0] + boundDataInt[2];
+           int XD1Int = boundDataInt[0]+ (boundDataInt[2]/2);
+           int YDInt = boundDataInt[1] - boundDataInt[3];
+
+           int vertexXR[]={boundDataInt[0],XD1Int,XD2Int};
+           int vertexYR[] ={boundDataInt[1],YDInt,boundDataInt[1]};
+           // rewrite to if> if else > if >if else dont know what i was smoking to come up with this 
+           if(useintRand == false){
+               if(f==true){
+                   Polygon tryingle =new Polygon(vertexX,vertexY,numOfPoints);
+                   g.setColor(new Color(c[0],c[1],c[2]));
+                   g.drawPolygon(tryingle);
+               
+           }else if(f == false){
+                   Polygon tryingle =new Polygon(vertexX,vertexY,numOfPoints);
+                   g.setColor(new Color(c[0],c[1],c[2]));
+                   g.fillPolygon(tryingle);
+
+               }
+           
+           }else{
+               int cint[]={Randomizer(255),Randomizer(255),Randomizer(255)};
+               if(f==true){
+                   Polygon tryingle =new Polygon(vertexXR,vertexYR,numOfPoints);
+                   g.setColor(new Color(cint[0],cint[1],cint[2]));
+                   g.drawPolygon(tryingle);
+               
+               }else if(f == false){
+                   Polygon tryingle =new Polygon(vertexXR,vertexYR,numOfPoints);
+                   g.setColor(new Color(Randomizer(255),Randomizer(255),Randomizer(255)));
+                   g.fillPolygon(tryingle);
+               }
+           }
+       }
 
 
 

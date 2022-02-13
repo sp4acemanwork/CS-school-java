@@ -187,13 +187,13 @@ public nftHouse(){
             int heightRand = Randomizer(BoundData[3]) +50;
             int widthRand =Randomizer(BoundData[2])+50;
             
+            int boundDataGrownd[]={00,500-groundHeight,600,groundHeight};// bound data for ground
             
-            int boundDataGrownd[]={00,500-groundHeight,600,groundHeight};
+            int BoundDataBase[] ={300-(widthRand/2),500-groundHeight-heightRand,widthRand,heightRand}; //bound data for base of house
             
-            int BoundDataBase[] ={300-(widthRand/2),500-groundHeight-heightRand,widthRand,heightRand}; 
             
             int BoundDataRoof[] ={300-(widthRand/2)-overhang,500-groundHeight-heightRand,BoundDataBase[2]+overhang*2,heightRand}; 
-            
+            //int boundDAtaChim[] ={,,}
             
             
             int ColorGrond[] = {Randomizer(255),Randomizer(255),Randomizer(255)};
