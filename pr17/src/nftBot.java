@@ -37,7 +37,7 @@ public nftBot(){
     int BoundDataHouse[]={250-50,100,100,100,100,100};
     //int ColorDataHouse[]={r,g,b,r2,g2,b2};
     int boundData[] = {200,200,200,100};
-    int boundData2[] = {Randomizer(100),Randomizer(100),Randomizer(100),Randomizer(100)}; // not needed
+    int boundData2[] = {200,200,200,-100};
     //int test[] = {100,100,200,200}; for testing 
     testRgb =Arrays.toString(rgb) ;
     testBoudns = Arrays.toString(boundData);
@@ -47,7 +47,16 @@ public nftBot(){
         public void paint(Graphics g){ // all functions are useing internal randomizers
             //createTri(boundData, false, rgb, g, false);
             //createTri(boundData, false, rgb, g, true);
-            createHouse(250,rgb , BoundDataHouse,Randomizer(20), g);
+            createTri(boundData, false, rgb, g, false);
+            createTri(boundData2, false, rgb, g, false);
+            createTri(boundData, true, rgb, g, true);
+            createTri(boundData, true, rgb, g, true);
+            
+            createTri(boundData, false, rgb, g, true);
+            createTri(boundData, true, rgb, g, true);
+            createTri(boundData, true, rgb, g, true);
+            createTri(boundData, true, rgb, g, true);
+            
 
         }
     };
@@ -90,7 +99,15 @@ public nftBot(){
         int cInter[] = {Randomizer(255),Randomizer(255),Randomizer(255)}; // use internal values to 
         // continuesly genrate rgb and bound values
 
-        int boundDataInter[] = {Randomizer(600),Randomizer(525),Randomizer(200),Randomizer(200)};
+        int boundDataInter[] = {(boundData[0]),(boundData[1]),(boundData[2]),(boundData[3])};
+        
+        if(useIntRand == true){
+            boundDataInter[0] = Randomizer(boundData[0]);
+            boundDataInter[1] = Randomizer(boundData[1]);
+            boundDataInter[2] = Randomizer(boundData[2]);
+            boundDataInter[3] = Randomizer(boundData[3]);
+         }
+        
     
         
         if(f == true && useIntRand == true){// if true make a filled rectangle if not true make a holo rectangle or oval there the same thing 
@@ -103,15 +120,6 @@ public nftBot(){
 
             }
 
-        if(f == true && useIntRand == false){// if true make a filled rectangle if not true make a holo rectangle or oval there the same thing 
-                g.setColor(new Color(c[0],c[1],c[2])); // best cheat
-                g.fillRect(boundData[0],boundData[1] , boundData[2], boundData[3]); 
-
-            }else if( f == false && useIntRand == false){// stuff for holo rect 
-                g.setColor(new Color(c[0],c[1],c[2]));
-                g.drawRect(boundData[0],boundData[1] , boundData[2], boundData[3]);
-
-            }
 
 
         }
@@ -124,55 +132,54 @@ public nftBot(){
         int cInter[] = {Randomizer(255),Randomizer(255),Randomizer(255)}; // use internal values to 
         // continuesly genrate rgb and bound values
 
-        int boundDataInter[] = {Randomizer(600),Randomizer(525),Randomizer(200),Randomizer(200)};
-    
-        if(f == true && useIntRand == true){// if true make a filled rectangle if not true make a holo rectangle or oval there the same thing 
+        int boundDataInter[] = {(boundData[0]),(boundData[1]),(boundData[2]),(boundData[3])};
+        if(useIntRand == true){
+            boundDataInter[0] = Randomizer(boundData[0]);
+            boundDataInter[1] = Randomizer(boundData[1]);
+            boundDataInter[2] = Randomizer(boundData[2]);
+            boundDataInter[3] = Randomizer(boundData[3]);
+        }
+        
+        
+        if(f == true){// if true make a filled rectangle if not true make a holo rectangle or oval there the same thing 
                 g.setColor(new Color(cInter[0],cInter[1],cInter[2])); // best cheat
                 g.fillOval(boundDataInter[0],boundDataInter[1] , boundDataInter[2], boundDataInter[3]); 
 
-            }else if( f == false && useIntRand == true){// stuff for holo rect 
+            }else if(f == false){// stuff for holo rect 
                 g.setColor(new Color(cInter[0],cInter[1],cInter[2]));
                 g.drawOval(boundDataInter[0],boundDataInter[1] , boundDataInter[2], boundDataInter[3]);
 
             }
 
-        if(f == true && useIntRand == false){// if true make a filled rectangle if not true make a holo rectangle or oval there the same thing 
-                g.setColor(new Color(c[0],c[1],c[2])); // best cheat       
-                g.fillOval(boundData[0],boundData[1] , boundData[2], boundData[3]); 
-
-            }else if( f == false && useIntRand == false){// stuff for holo rect 
-                g.setColor(new Color(c[0],c[1],c[2]));
-                g.drawOval(boundData[0],boundData[1] , boundData[2], boundData[3]);
-
-            }
 
         }
 
+
     // ----------------------------------------------------- create arch -----------------------------
     private void createArc(int[]boundData,boolean f,int[]c,int start,int angle,Graphics g,boolean useIntRand) {
-    
-        int cInter[] = {Randomizer(255),Randomizer(255),Randomizer(255)}; // use internal values to 
+       
         // continuesly genrate rgb and bound values
+        int cInter[] = {Randomizer(255),Randomizer(255),Randomizer(255)}; // use internal values to 
+        int startInt = start;
+        int angleInt = angle;
+        int boundDataInter[] = {(boundData[0]),(boundData[1]),(boundData[2]),(boundData[3])};
+        if(useIntRand == true){
+            boundDataInter[0] = Randomizer(boundData[0]);
+            boundDataInter[1] = Randomizer(boundData[1]);
+            boundDataInter[2] = Randomizer(boundData[2]);
+            boundDataInter[3] = Randomizer(boundData[3]);
+            startInt = Randomizer(start);
+            angleInt = Randomizer(angle);
+         }
+    
         
-        int boundDataInter[] = {Randomizer(600),Randomizer(525),Randomizer(200),Randomizer(200)};
-        
-        if(f == true && useIntRand == true){// if true make a filled rectangle if not true make a holo rectangle or oval there the same thing 
+        if(f == true){// if true make a filled rectangle if not true make a holo rectangle or oval there the same thing 
                 g.setColor(new Color(cInter[0],cInter[1],cInter[2])); // best cheat
-                g.fillArc(boundDataInter[0],boundDataInter[1] , boundDataInter[2], boundDataInter[3],Randomizer(180),Randomizer(180)); 
+                g.fillArc(boundDataInter[0],boundDataInter[1] , boundDataInter[2], boundDataInter[3],startInt,angleInt); 
 
-            }else if(f == false && useIntRand == true){// stuff for holo rect 
+            }else if(f == false){// stuff for holo rect 
                 g.setColor(new Color(cInter[0],cInter[1],cInter[2]));
-                g.drawArc(boundDataInter[0],boundDataInter[1] , boundDataInter[2], boundDataInter[3],Randomizer(180),Randomizer(180));
-
-            }
-
-        if(f == true && useIntRand == false){// if true make a filled rectangle if not true make a holo rectangle or oval there the same thing 
-                g.setColor(new Color(c[0],c[1],c[2])); // best cheat
-                g.fillArc(boundData[0],boundData[1] , boundData[2], boundData[3],start,angle); 
-
-            }else if( f == false && useIntRand == false){// stuff for holo rect 
-                g.setColor(new Color(c[0],c[1],c[2]));
-                g.drawArc(boundData[0],boundData[1] , boundData[2], boundData[3],start,angle);
+                g.drawArc(boundDataInter[0],boundDataInter[1] , boundDataInter[2], boundDataInter[3],startInt,angleInt);
 
             }
 
@@ -184,25 +191,26 @@ public nftBot(){
     
         private void createTri(int[]boundData,boolean f,int[]c,Graphics g,boolean useintRand ){
              //   bounds [] {x,y,xd,td}
-            int XD2 = boundData[0] + boundData[2];
-            int XD1 = boundData[0]+ (boundData[2]/2) ;
-            int YD = boundData[1] - boundData[3];
+            int boundInt[] = {boundData[0],boundData[1],boundData[2],boundData[3]};
+            if(useintRand == true){
+                boundInt[0] = Randomizer(boundData[0]);
+                boundInt[1] = Randomizer(boundData[1]);
+                boundInt[2] = Randomizer(boundData[2]);
+                boundInt[3] = Randomizer(boundData[3]);
+             }
+            
+            
+            int XD2 = boundInt[0] + boundInt[2];
+            int XD1 = boundInt[0]+ (boundInt[2]/2) ;
+            int YD = boundInt[1] - boundInt[3];
             int numOfPoints= 3;
-            int vertexX[]={boundData[0],XD1,XD2};
-            int vertexY[] ={boundData[1],YD,boundData[1]};
+            int vertexX[]={boundInt[0],XD1,XD2};
+            int vertexY[] ={boundInt[1],YD,boundInt[1]};
 
              //-----------internal verbles for when using internal randomizer come up with way to use less arrays 
 
-            int boundDataInt[] ={Randomizer(500),Randomizer(500),Randomizer(500),Randomizer(500)};
-            int XD2Int = boundDataInt[0] + boundDataInt[2];
-            int XD1Int = boundDataInt[0]+ (boundDataInt[2]/2);
-            int YDInt = boundDataInt[1] - boundDataInt[3];
-
-            int vertexXR[]={boundDataInt[0],XD1Int,XD2Int};
-            int vertexYR[] ={boundDataInt[1],YDInt,boundDataInt[1]};
-            // rewrite to if> if else > if >if else dont know what i was smoking to come up with this 
-            if(useintRand == false){
-                if(f==true){
+            
+            if(f==true){
                     Polygon tryingle =new Polygon(vertexX,vertexY,numOfPoints);
                     g.setColor(new Color(c[0],c[1],c[2]));
                     g.drawPolygon(tryingle);
@@ -212,28 +220,13 @@ public nftBot(){
                     g.setColor(new Color(c[0],c[1],c[2]));
                     g.fillPolygon(tryingle);
 
-                }
-            
-            }else{
-                if(f==true){
-                    Polygon tryingle =new Polygon(vertexX,vertexY,numOfPoints);
-                    g.setColor(new Color(c[0],c[1],c[2]));
-                    g.drawPolygon(tryingle);
-                
-                }else if(f == false){
-                    Polygon tryingle =new Polygon(vertexXR,vertexYR,numOfPoints);
-                    g.setColor(new Color(Randomizer(255),Randomizer(255),Randomizer(255)));
-                    g.fillPolygon(tryingle);
-                }
             }
+
+    
+    
+
+
         }
-
-
-    
-    
-
-
-
 
     
         // ---------------------- create house------------------------------
