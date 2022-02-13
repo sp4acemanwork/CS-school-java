@@ -22,7 +22,7 @@ private String testRgb,testBoudns;
 
 
 public nftBot(){
-    f =new JFrame ("nftface");
+    f =new JFrame ("nftRobot");
     f.setSize(600,600);
     f.setLayout(null);
     f.setVisible(true);
@@ -199,7 +199,6 @@ public nftBot(){
                 boundInt[3] = Randomizer(boundData[3]);
              }
             
-            
             int XD2 = boundInt[0] + boundInt[2];
             int XD1 = boundInt[0]+ (boundInt[2]/2) ;
             int YD = boundInt[1] - boundInt[3];
@@ -208,7 +207,6 @@ public nftBot(){
             int vertexY[] ={boundInt[1],YD,boundInt[1]};
 
              //-----------internal verbles for when using internal randomizer come up with way to use less arrays 
-
             
             if(f==true){
                     Polygon tryingle =new Polygon(vertexX,vertexY,numOfPoints);
@@ -219,11 +217,7 @@ public nftBot(){
                     Polygon tryingle =new Polygon(vertexX,vertexY,numOfPoints);
                     g.setColor(new Color(c[0],c[1],c[2]));
                     g.fillPolygon(tryingle);
-
             }
-
-    
-    
 
 
         }
