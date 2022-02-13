@@ -22,7 +22,7 @@ private String testRgb,testBoudns;
 
 
 public nftHouse(){
-    f =new JFrame ("nftface");
+    f =new JFrame ("nftHouse");
     f.setSize(600,600);
     f.setLayout(null);
     f.setVisible(true);
@@ -177,34 +177,54 @@ public nftHouse(){
 
 
 
-    
+        // god forgive me for this awfull fucking "solution"
         // ---------------------- create house------------------------------
         private void createHouse(int groundHeight,int[] groundColor,int[] BoundData,int overhang,Graphics g){
             // set ground 
             groundHeight = Randomizer(200);
            
-           // int roof []= {,,,};
+            int chim = Randomizer(3);
+            
+
+
+
             int heightRand = Randomizer(BoundData[3]) +50;
             int widthRand =Randomizer(BoundData[2])+50;
-            
+            int doorNum =widthRand/4;
+            int offset = widthRand/12;
+            //
             int boundDataGrownd[]={00,500-groundHeight,600,groundHeight};// bound data for ground
-            
+            //
             int BoundDataBase[] ={300-(widthRand/2),500-groundHeight-heightRand,widthRand,heightRand}; //bound data for base of house
-            
-            
-            int BoundDataRoof[] ={300-(widthRand/2)-overhang,500-groundHeight-heightRand,BoundDataBase[2]+overhang*2,heightRand}; 
-            //int boundDAtaChim[] ={,,}
-            
-            
+            //
+            int BoundDataRoof[] ={300-(widthRand/2)-overhang,500-groundHeight-heightRand,BoundDataBase[2]+overhang*2,heightRand};
+       
+            //
+            int boundDataChim[] ={310-(widthRand/2),500-groundHeight-heightRand*2,widthRand/4,heightRand};
+            if(chim ==3){
+                 
+            }else if(chim == 2){
+                 boundDataChim[0]= 300-(widthRand/2) + widthRand-doorNum-widthRand/16 - 5;
+            }else{
+                boundDataChim[3] =0;
+            }
+            //
+            int BoundDataWindow[] = {310-(widthRand/2),520-groundHeight-heightRand,widthRand/4,heightRand/4};
+            int BoundDataDoor[] = {300-(widthRand/2) + widthRand-doorNum-offset,520-groundHeight-heightRand,doorNum,heightRand};
             int ColorGrond[] = {Randomizer(255),Randomizer(255),Randomizer(255)};
             int ColorGrond2[] = {Randomizer(255),Randomizer(255),Randomizer(255)};
             int ColorGrond3[] = {Randomizer(255),Randomizer(255),Randomizer(255)}; // rename this 
             
             
             
-            createBox(boundDataGrownd, true,ColorGrond ,g, false);
+            
             createBox(BoundDataBase,true,ColorGrond2,g,false); 
+            createBox(BoundDataDoor, true, ColorGrond3, g, false);
+            createBox(boundDataGrownd, true,ColorGrond ,g, false);
+            createBox(boundDataChim, true, ColorGrond, g, false);
+            createBox(BoundDataWindow, true, ColorGrond, g, false);
             createTri(BoundDataRoof, false, ColorGrond3, g, false);
+            
             //createTri(boundData, f, c, g, useintRand);
         }
 
