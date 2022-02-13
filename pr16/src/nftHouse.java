@@ -37,7 +37,7 @@ public nftHouse(){
     int BoundDataHouse[]={250-50,100,100,100,100,100};
     //int ColorDataHouse[]={r,g,b,r2,g2,b2};
     int boundData[] = {200,200,200,100};
-    int boundData2[] = {Randomizer(100),Randomizer(100),Randomizer(100),Randomizer(100)}; // not needed
+
     //int test[] = {100,100,200,200}; for testing 
     testRgb =Arrays.toString(rgb) ;
     testBoudns = Arrays.toString(boundData);
@@ -118,67 +118,9 @@ public nftHouse(){
 
 
 
-    //----------------------------------- create Circ --------------------
-    private void createCirc(int[]boundData,boolean f,int[]c,Graphics g,boolean useIntRand) {
-    
-        int cInter[] = {Randomizer(255),Randomizer(255),Randomizer(255)}; // use internal values to 
-        // continuesly genrate rgb and bound values
+   
 
-        int boundDataInter[] = {Randomizer(600),Randomizer(525),Randomizer(200),Randomizer(200)};
-    
-        if(f == true && useIntRand == true){// if true make a filled rectangle if not true make a holo rectangle or oval there the same thing 
-                g.setColor(new Color(cInter[0],cInter[1],cInter[2])); // best cheat
-                g.fillOval(boundDataInter[0],boundDataInter[1] , boundDataInter[2], boundDataInter[3]); 
 
-            }else if( f == false && useIntRand == true){// stuff for holo rect 
-                g.setColor(new Color(cInter[0],cInter[1],cInter[2]));
-                g.drawOval(boundDataInter[0],boundDataInter[1] , boundDataInter[2], boundDataInter[3]);
-
-            }
-
-        if(f == true && useIntRand == false){// if true make a filled rectangle if not true make a holo rectangle or oval there the same thing 
-                g.setColor(new Color(c[0],c[1],c[2])); // best cheat       
-                g.fillOval(boundData[0],boundData[1] , boundData[2], boundData[3]); 
-
-            }else if( f == false && useIntRand == false){// stuff for holo rect 
-                g.setColor(new Color(c[0],c[1],c[2]));
-                g.drawOval(boundData[0],boundData[1] , boundData[2], boundData[3]);
-
-            }
-
-        }
-
-    // ----------------------------------------------------- create arch -----------------------------
-    private void createArc(int[]boundData,boolean f,int[]c,int start,int angle,Graphics g,boolean useIntRand) {
-    
-        int cInter[] = {Randomizer(255),Randomizer(255),Randomizer(255)}; // use internal values to 
-        // continuesly genrate rgb and bound values
-        
-        int boundDataInter[] = {Randomizer(600),Randomizer(525),Randomizer(200),Randomizer(200)};
-        
-        if(f == true && useIntRand == true){// if true make a filled rectangle if not true make a holo rectangle or oval there the same thing 
-                g.setColor(new Color(cInter[0],cInter[1],cInter[2])); // best cheat
-                g.fillArc(boundDataInter[0],boundDataInter[1] , boundDataInter[2], boundDataInter[3],Randomizer(180),Randomizer(180)); 
-
-            }else if(f == false && useIntRand == true){// stuff for holo rect 
-                g.setColor(new Color(cInter[0],cInter[1],cInter[2]));
-                g.drawArc(boundDataInter[0],boundDataInter[1] , boundDataInter[2], boundDataInter[3],Randomizer(180),Randomizer(180));
-
-            }
-
-        if(f == true && useIntRand == false){// if true make a filled rectangle if not true make a holo rectangle or oval there the same thing 
-                g.setColor(new Color(c[0],c[1],c[2])); // best cheat
-                g.fillArc(boundData[0],boundData[1] , boundData[2], boundData[3],start,angle); 
-
-            }else if( f == false && useIntRand == false){// stuff for holo rect 
-                g.setColor(new Color(c[0],c[1],c[2]));
-                g.drawArc(boundData[0],boundData[1] , boundData[2], boundData[3],start,angle);
-
-            }
-
-        }
-
-    
     
     
     
@@ -266,7 +208,7 @@ public nftHouse(){
             //createTri(boundData, f, c, g, useintRand);
         }
 
-        
+
 
     public static void main(String[] args) throws Exception {
         System.out.println("written by james shufelt");
