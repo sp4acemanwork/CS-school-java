@@ -28,7 +28,7 @@ public class pr10 {
    });  
 
 
-
+   f.repaint();
 
    }
 

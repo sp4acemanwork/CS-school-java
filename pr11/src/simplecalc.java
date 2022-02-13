@@ -138,7 +138,7 @@ f.add(tiads);
 
 
 
-
+    f.repaint();
     }
 
 

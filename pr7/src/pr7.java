@@ -34,10 +34,11 @@ public class pr7 {
         sc =new JScrollPane(table);
         
         f.add(sc);
+        f.repaint();
+        
         
 
-
-
+        
     }
 
 

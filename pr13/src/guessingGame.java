@@ -104,7 +104,7 @@ f.add(t1);
 
 
 
-
+    f.repaint();
     }
 
 

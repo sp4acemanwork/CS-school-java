@@ -101,7 +101,7 @@ public class pr9 {
         });
         
         
-        
+    f.repaint();  
     }
 
 

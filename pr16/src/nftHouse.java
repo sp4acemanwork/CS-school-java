@@ -46,8 +46,8 @@ public nftHouse(){
     Canvas c = new Canvas(){
         public void paint(Graphics g){ // all functions are useing internal randomizers
             //createTri(boundData, false, rgb, g, false);
-            createTri(boundData, false, rgb, g, true);
-            createHouse(250,rgb , BoundDataHouse, g);
+            //createTri(boundData, false, rgb, g, true);
+            createHouse(250,rgb , BoundDataHouse,Randomizer(20), g);
 
         }
     };
@@ -85,7 +85,7 @@ public nftHouse(){
     //that requires a new class and more files and im to layzy for that 
 
     //-------------------------create rect --------------------------
-    private void createBox(int[]boundData,boolean f,int[] c ,Graphics g,boolean useIntRand) {
+    private void createBox(int[]boundData,boolean f,int[]c,Graphics g,boolean useIntRand) {
     
         int cInter[] = {Randomizer(255),Randomizer(255),Randomizer(255)}; // use internal values to 
         // continuesly genrate rgb and bound values
@@ -119,7 +119,7 @@ public nftHouse(){
 
 
     //----------------------------------- create Circ --------------------
-    private void createCirc(int[]boundData,boolean f,int[] c ,Graphics g,boolean useIntRand) {
+    private void createCirc(int[]boundData,boolean f,int[]c,Graphics g,boolean useIntRand) {
     
         int cInter[] = {Randomizer(255),Randomizer(255),Randomizer(255)}; // use internal values to 
         // continuesly genrate rgb and bound values
@@ -195,7 +195,7 @@ public nftHouse(){
 
             int boundDataInt[] ={Randomizer(500),Randomizer(500),Randomizer(500),Randomizer(500)};
             int XD2Int = boundDataInt[0] + boundDataInt[2];
-            int XD1Int = boundDataInt[0]+ (boundDataInt[2]/2) ;
+            int XD1Int = boundDataInt[0]+ (boundDataInt[2]/2);
             int YDInt = boundDataInt[1] - boundDataInt[3];
 
             int vertexXR[]={boundDataInt[0],XD1Int,XD2Int};
@@ -237,41 +237,39 @@ public nftHouse(){
 
     
         // ---------------------- create house------------------------------
-        private void createHouse(int groundHeight,int[] groundColor,int[] BoundData,Graphics g){
+        private void createHouse(int groundHeight,int[] groundColor,int[] BoundData,int overhang,Graphics g){
             // set ground 
-            groundHeight = Randomizer(250);
+            groundHeight = Randomizer(200);
+           
+           // int roof []= {,,,};
+            int heightRand = Randomizer(BoundData[3]) +50;
+            int widthRand =Randomizer(BoundData[2])+50;
+            
+            
             int boundDataGrownd[]={00,500-groundHeight,600,groundHeight};
-            int BoundDataBase[] ={100,500-groundHeight-50,100,50};
+            
+            int BoundDataBase[] ={300-(widthRand/2),500-groundHeight-heightRand,widthRand,heightRand}; 
+            
+            int BoundDataRoof[] ={300-(widthRand/2)-overhang,500-groundHeight-heightRand,BoundDataBase[2]+overhang*2,heightRand}; 
+            
+            
+            
             int ColorGrond[] = {Randomizer(255),Randomizer(255),Randomizer(255)};
-            int ColorGrond2[] = {Randomizer(255),Randomizer(255),Randomizer(255)}; // rename this 
+            int ColorGrond2[] = {Randomizer(255),Randomizer(255),Randomizer(255)};
+            int ColorGrond3[] = {Randomizer(255),Randomizer(255),Randomizer(255)}; // rename this 
+            
+            
+            
             createBox(boundDataGrownd, true,ColorGrond ,g, false);
-            createBox(BoundDataBase,true,ColorGrond2,g,false);
-
-
-
-
-
-
+            createBox(BoundDataBase,true,ColorGrond2,g,false); 
+            createTri(BoundDataRoof, false, ColorGrond3, g, false);
+            //createTri(boundData, f, c, g, useintRand);
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        
 
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+        System.out.println("written by james shufelt");
         //new nftShapes();
         nftHouse x = new nftHouse();
         //new nftShapes();

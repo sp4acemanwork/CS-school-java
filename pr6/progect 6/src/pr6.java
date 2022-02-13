@@ -75,7 +75,7 @@ public class pr6 {
 
 
 
-
+    f.repaint();
     }
 
     public static void main(String[] args){
