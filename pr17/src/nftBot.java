@@ -47,16 +47,7 @@ public nftBot(){
         public void paint(Graphics g){ // all functions are useing internal randomizers
             //createTri(boundData, false, rgb, g, false);
             //createTri(boundData, false, rgb, g, true);
-            createTri(boundData, false, rgb, g, false);
-            createTri(boundData2, false, rgb, g, false);
-            createTri(boundData, true, rgb, g, true);
-            createTri(boundData, true, rgb, g, true);
-            
-            createTri(boundData, false, rgb, g, true);
-            createTri(boundData, true, rgb, g, true);
-            createTri(boundData, true, rgb, g, true);
-            createTri(boundData, true, rgb, g, true);
-            
+            createHouse(250,rgb , BoundDataHouse,Randomizer(20), g);
 
         }
     };
@@ -110,11 +101,11 @@ public nftBot(){
         
     
         
-        if(f == true && useIntRand == true){// if true make a filled rectangle if not true make a holo rectangle or oval there the same thing 
+        if(f == true ){// if true make a filled rectangle if not true make a holo rectangle or oval there the same thing 
                 g.setColor(new Color(cInter[0],cInter[1],cInter[2])); // best cheat
                 g.fillRect(boundDataInter[0],boundDataInter[1] , boundDataInter[2], boundDataInter[3]); 
 
-            }else if( f == false && useIntRand == true){// stuff for holo rect 
+            }else if( f == false ){// stuff for holo rect 
                 g.setColor(new Color(cInter[0],cInter[1],cInter[2]));
                 g.drawRect(boundDataInter[0],boundDataInter[1] , boundDataInter[2], boundDataInter[3]);
 
@@ -188,8 +179,7 @@ public nftBot(){
 
     
     
-    
-    
+    //------------------------------------- create tri ---------------------------------------------
         private void createTri(int[]boundData,boolean f,int[]c,Graphics g,boolean useintRand ){
              //   bounds [] {x,y,xd,td}
             int boundInt[] = {boundData[0],boundData[1],boundData[2],boundData[3]};
@@ -207,7 +197,6 @@ public nftBot(){
             int vertexX[]={boundInt[0],XD1,XD2};
             int vertexY[] ={boundInt[1],YD,boundInt[1]};
 
-             //-----------internal verbles for when using internal randomizer come up with way to use less arrays 
             
             if(f==true){
                     Polygon tryingle =new Polygon(vertexX,vertexY,numOfPoints);
@@ -222,37 +211,57 @@ public nftBot(){
 
 
         }
-
-    
-        // ---------------------- create house------------------------------
         private void createHouse(int groundHeight,int[] groundColor,int[] BoundData,int overhang,Graphics g){
             // set ground 
             groundHeight = Randomizer(200);
            
-           // int roof []= {,,,};
+            int chim = Randomizer(3);
+            
+
+
+
             int heightRand = Randomizer(BoundData[3]) +50;
             int widthRand =Randomizer(BoundData[2])+50;
-            
-            
-            int boundDataGrownd[]={00,500-groundHeight,600,groundHeight};
-            
-            int BoundDataBase[] ={300-(widthRand/2),500-groundHeight-heightRand,widthRand,heightRand}; 
-            
-            int BoundDataRoof[] ={300-(widthRand/2)-overhang,500-groundHeight-heightRand,BoundDataBase[2]+overhang*2,heightRand}; 
-            
-            
-            
+            int doorNum =widthRand/4;
+            int offset = widthRand/12;
+            //
+            int boundDataGrownd[]={00,500-groundHeight,600,groundHeight};// bound data for ground
+            //
+            int BoundDataBase[] ={300-(widthRand/2),500-groundHeight-heightRand,widthRand,heightRand}; //bound data for base of house
+            //
+            int BoundDataRoof[] ={300-(widthRand/2)-overhang,500-groundHeight-heightRand,BoundDataBase[2]+overhang*2,heightRand};
+       
+            //
+            int boundDataChim[] ={310-(widthRand/2),500-groundHeight-heightRand*2,widthRand/4,heightRand};
+            if(chim ==3){
+                 
+            }else if(chim == 2){
+                 boundDataChim[0]= 300-(widthRand/2) + widthRand-doorNum-widthRand/16 - 5;
+            }else{
+                boundDataChim[3] =0;
+            }
+            //
+            int BoundDataWindow[] = {310-(widthRand/2),520-groundHeight-heightRand,widthRand/4,heightRand/4};
+            int BoundDataDoor[] = {300-(widthRand/2) + widthRand-doorNum-offset,520-groundHeight-heightRand,doorNum,heightRand};
             int ColorGrond[] = {Randomizer(255),Randomizer(255),Randomizer(255)};
             int ColorGrond2[] = {Randomizer(255),Randomizer(255),Randomizer(255)};
             int ColorGrond3[] = {Randomizer(255),Randomizer(255),Randomizer(255)}; // rename this 
             
             
             
-            createBox(boundDataGrownd, true,ColorGrond ,g, false);
+            
             createBox(BoundDataBase,true,ColorGrond2,g,false); 
+            createBox(BoundDataDoor, true, ColorGrond3, g, false);
+            createBox(boundDataGrownd, true,ColorGrond ,g, false);
+            createBox(boundDataChim, true, ColorGrond, g, false);
+            createBox(BoundDataWindow, true, ColorGrond, g, false);
             createTri(BoundDataRoof, false, ColorGrond3, g, false);
+            
             //createTri(boundData, f, c, g, useintRand);
         }
+
+    
+        
 
         
 

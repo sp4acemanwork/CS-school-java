@@ -177,7 +177,7 @@ public nftHouse(){
 
 
 
-        // god forgive me for this awfull fucking "solution"
+       
         // ---------------------- create house------------------------------
         private void createHouse(int groundHeight,int[] groundColor,int[] BoundData,int overhang,Graphics g){
             // set ground 
