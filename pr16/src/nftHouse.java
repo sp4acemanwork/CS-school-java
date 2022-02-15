@@ -47,7 +47,10 @@ public nftHouse(){
         public void paint(Graphics g){ // all functions are useing internal randomizers
             //createTri(boundData, false, rgb, g, false);
             //createTri(boundData, false, rgb, g, true);
-            createHouse(250,rgb , BoundDataHouse,Randomizer(20), g);
+            
+                createHouse(250,rgb , BoundDataHouse,Randomizer(20), g);
+            
+            
 
         }
     };
@@ -60,7 +63,9 @@ public nftHouse(){
     
     b.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){// refreshes canvas
-            c.repaint();
+                c.repaint();
+            
+                
         }
     });
 
