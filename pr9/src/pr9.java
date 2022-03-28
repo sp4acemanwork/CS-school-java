@@ -17,7 +17,7 @@ public class pr9 {
         f=new JFrame("progject 9: menu items");
         f.setSize(500,500);
         f.setLayout(null);
-        f.setVisible(true);
+        
         f.getContentPane().setBackground(Color.green);
 
         cut = new JMenuItem("cut");
@@ -47,7 +47,7 @@ public class pr9 {
        
         f.add(mb);
         f.setJMenuBar(mb);
-
+        final JFileChooser fc = new JFileChooser();
         New.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
 
@@ -56,7 +56,8 @@ public class pr9 {
 
         Open.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
-
+                
+                int returnVal = fc.showOpenDialog(null);
             }
         });
 
@@ -102,9 +103,11 @@ public class pr9 {
         
         
     f.repaint();  
+    f.setDefaultCloseOperation(f.EXIT_ON_CLOSE);
+    f.setVisible(true);
     }
 
-
+    
 
     public static void main(String[] args) throws Exception {
         new pr9();
